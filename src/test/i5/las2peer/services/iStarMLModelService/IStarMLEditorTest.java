@@ -101,7 +101,7 @@ public class IStarMLEditorTest {
 	public void testLoadXML() {
 		try {			
 			_editor.loadXML(getFile("loadXML1"));
-			assertEquals("Loading content mismatch",getFile("loadXML1"),_editor.toString());
+			assertEquals("Loading content mismatch",getFile("loadXML1"),_editor.toString().replaceAll("\r",""));
 			
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
@@ -135,7 +135,7 @@ public class IStarMLEditorTest {
         	_editor.createDepender("4", "1");
         	_editor.createDepender("4", "2");
         	_editor.createDependee("4", "3"); 
-			assertEquals("Generating content mismatch",getFile("creation1"),_editor.toString());
+			assertEquals("Generating content mismatch",getFile("creation1"),_editor.toString().replaceAll("\r",""));
 			
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
@@ -179,7 +179,7 @@ public class IStarMLEditorTest {
 			_editor.createIElement("7", "Ask", "goal","");
 			_editor.createActorLink("6", "is_a", "1");
 			_editor.createDepender("7", "3");
-			assertEquals("Generating2 content mismatch",getFile("creation2"),_editor.toString());
+			assertEquals("Generating2 content mismatch",getFile("creation2"),_editor.toString().replaceAll("\r",""));
 			
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
@@ -190,7 +190,7 @@ public class IStarMLEditorTest {
 			_editor.deleteDependee("4", "3");
 			_editor.deleteDepender("4", "1");
 			_editor.createActorLink("2", "instance_of", "1");
-			assertEquals("Generating2_2 content mismatch",getFile("creation2_2"),_editor.toString());
+			assertEquals("Generating2_2 content mismatch",getFile("creation2_2"),_editor.toString().replaceAll("\r",""));
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
 		}
@@ -199,7 +199,7 @@ public class IStarMLEditorTest {
 			//_editor.createActorLink("2", "is_part_of", "3");
 			_editor.createDepender("4", "1");        	
         	_editor.createDependee("4", "3"); 
-			assertEquals("Generating2_3 content mismatch",getFile("creation2_3"),_editor.toString());
+			assertEquals("Generating2_3 content mismatch",getFile("creation2_3"),_editor.toString().replaceAll("\r",""));
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
 		}
@@ -207,7 +207,7 @@ public class IStarMLEditorTest {
 			//_editor.deleteActor("2");			
 			//System.out.println(_editor.toString());
 			_editor.deleteIElement("4");	
-			assertEquals("Generating2_4 content mismatch",getFile("creation2_4"),_editor.toString());
+			assertEquals("Generating2_4 content mismatch",getFile("creation2_4"),_editor.toString().replaceAll("\r",""));
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
 		}
@@ -220,7 +220,7 @@ public class IStarMLEditorTest {
 			//_editor.createActorLink("2", "is_part_of", "3");
 			
 		} catch (Exception e) {
-			fail("Edges could not be created although no id and aref duplicates. "+e.getMessage() );
+			fail("Edges could not be created although no id and aref duplicates. "+e.getMessage().replaceAll("\r",""));
 		}
 		
 	}
@@ -237,7 +237,7 @@ public class IStarMLEditorTest {
 			_editor.deleteDepender("4", "2");
 			_editor.editDepender("4", "1", "2");
 			_editor.editDependee("4", "3", "1");
-			assertEquals("Edit content mismatch",getFile("creation3"),_editor.toString());
+			assertEquals("Edit content mismatch",getFile("creation3"),_editor.toString().replaceAll("\r",""));
 		} catch (Exception e) {
 			fail("Exception: "+ e.getMessage());
 		}
