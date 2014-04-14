@@ -1,0 +1,16 @@
+<istarml>
+    <diagram name="diagram">
+        <actor id="1" name="Medium" type="actor">
+            <actorLink aref="2" type="is_a"/>
+        </actor>
+        <actor id="3" name="Teacher" type="agent"/>
+        <ielement id="5" name="Check" type="task">
+            <dependency/>
+        </ielement>
+        <ielement id="7" name="Ask" type="goal">
+            <dependency>
+                <depender aref="3"/>
+            </dependency>
+        </ielement>
+    </diagram>
+</istarml>

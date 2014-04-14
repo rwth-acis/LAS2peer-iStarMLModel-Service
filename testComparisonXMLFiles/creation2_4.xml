@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<istarml>
+  <diagram name="diagram">
+    <actor comment="ID: 1" id="1" name="Medium" type="actor">
+      <actorLink aref="2" type="is_a"/>
+    </actor>
+    <actor comment="ID: 2" id="2" name="Group" type="actor">
+      <actorLink aref="1" type="instance_of"/>
+    </actor>
+    <actor comment="ID: 3" id="3" name="Teacher" type="agent"/>
+    <ielement comment="ID: 5" id="5" name="Check" type="task">
+      <dependency/>
+    </ielement>
+    <actor comment="ID: 6" id="6" name="Teacher" type="agent">
+      <actorLink aref="1" type="is_a"/>
+    </actor>
+    <ielement comment="ID: 7" id="7" name="Ask" type="goal">
+      <dependency>
+        <depender aref="3"/>
+      </dependency>
+    </ielement>
+  </diagram>
+</istarml>

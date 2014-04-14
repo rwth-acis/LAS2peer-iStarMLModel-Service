@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<istarml>
+  <diagram name="diagram">
+    <actor id="1" name="Medium" type="actor"/>
+    <actor id="2" name="Group" type="actor"/>
+    <actor id="1" name="Teacher" type="actor"/>
+  </diagram>
+</istarml>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="istarml/check" targetNamespace="istarml/check" elementFormDefault="qualified">
+
+    <element name="istarml" type="tns:istarmlType"></element>
+    
+    <complexType name="istarmlType">
+    	<sequence>
+            <element name="diagram" type="tns:diagramType" maxOccurs="1"
+            	minOccurs="1">
+            </element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="diagramType">
+    	<choice maxOccurs="unbounded" minOccurs="0">
+    		<element name="actor" type="tns:actorType" ></element>
+    		<element name="ielement" type="tns:ielementType"></element>
+    	</choice>
+    	<attribute name="name" type="string" use="required"></attribute>
+    </complexType>
+
+
+
+    <complexType name="actorType">
+    	<sequence>
+    		<element name="actorLink" type="tns:actorLinkType" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    	<attribute name="id" type="string" use="required"></attribute>
+    	<attribute name="name" type="string" use="required"></attribute>
+    	<attribute name="type" type="tns:actorTypes" use="required"></attribute>
+    	<attribute name="comment" type="string" use="optional"></attribute>
+    	<anyAttribute  processContents="skip"/>
+    </complexType>
+
+	<simpleType name="actorTypes">
+	  <restriction base="string">
+	    <enumeration value="actor" />
+	    <enumeration value="agent" />
+	    <enumeration value="position" />
+	    <enumeration value="role" />
+	  </restriction>
+	</simpleType>
+	<simpleType name="actorLinkTypes">
+	  <restriction base="string">
+	  	<enumeration value="is_part_of" />
+	    <enumeration value="is_a" />
+	    <enumeration value="instance_of" />
+	    <enumeration value="plays" />
+	    <enumeration value="covers" />
+	    <enumeration value="occupies" />
+	  </restriction>
+	</simpleType>
+	<simpleType name="ielementTypes">
+	  <restriction base="string">
+	    <enumeration value="resource" />
+	    <enumeration value="task" />
+	    <enumeration value="goal" />
+	    <enumeration value="softgoal" />
+	    <enumeration value="belief" />
+	  </restriction>
+	</simpleType>
+    <complexType name="ielementType">
+    	<sequence>
+    		<element name="dependency" type="tns:dependencyType" maxOccurs="1" minOccurs="1"></element>
+    	</sequence>
+    	<attribute name="id" type="string" use="required"></attribute>
+    	<attribute name="name" type="string" use="required"></attribute>
+    	<attribute name="type" type="tns:ielementTypes" use="required"></attribute>
+    	<attribute name="comment" type="string" use="optional"></attribute>
+    	<anyAttribute  processContents="skip"/>
+    </complexType>
+
+    <complexType name="actorLinkType">
+    	<attribute name="aref" type="string" use="required"></attribute>
+    	<attribute name="type" type="tns:actorLinkTypes" use="required"></attribute>
+    </complexType>
+
+    <complexType name="dependencyType">
+    	<choice maxOccurs="unbounded"	minOccurs="0">
+    		<element name="depender" type="tns:dependerType">
+    		</element>
+    		<element name="dependee" type="tns:dependeeType"></element>
+    	</choice>
+    </complexType>
+
+    <complexType name="dependerType">
+    	<attribute name="aref" type="string" use="required"></attribute>
+    </complexType>
+    
+    <complexType name="dependeeType">
+    	<attribute name="aref" type="string" use="required"></attribute>
+    </complexType>
+</schema>

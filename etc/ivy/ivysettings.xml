@@ -1,0 +1,7 @@
+<ivysettings>
+    <settings defaultResolver="archiva" />
+    <resolvers>
+        <ibiblio name="archiva" m2compatible="true" root="http://role.dbis.rwth-aachen.de:9911/archiva/repository/internal/"/>
+		<ibiblio name="maven" root="http://mvnrepository.com/artifact/" m2compatible="true" />
+    </resolvers>
+</ivysettings>
